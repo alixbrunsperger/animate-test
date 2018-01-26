@@ -2,30 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Card guess!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="simple-grid.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Norican" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body >
     <header>
         <div class="row header">
-            <div class="col-2"></div>
-            <div class="col-8">
-                Want to play ?<br />
+            <div class="col-2 col-4-sm hidden-portrait feedback-container">
+                <div class="feedback">
+                </div>
+            </div>
+            <div class="col-8 col-12-sm hidden-landscape">
+                Card guess<br />
+                <span class="hint">try to form pairs of cards by playing as few turns as possible</span><br/>
+                <button class="new-game hidden-sm" onclick="initCards();" >New game</button>
+                <div class="hidden-desk rotate hint">Rotate your phone to play</div>
+            </div>
+            <div class="col-4-sm hidden-portrait hidden-desk button-container">
                 <button class="new-game" onclick="initCards();" >New game</button>
             </div>
-            <div class="col-2 score"></div>
+            <div class="col-2 col-4-sm hidden-portrait score-container">Turns : <span class="score">0</span></div>
         </div>
     </header>
     <main>
-        <div class="main-container">
+        <div class="main-container hidden-portrait">
             <div class="row cards-container">
-            </div>
-            <div class="feedback">
             </div>
         </div>
     </main>

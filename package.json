@@ -1,0 +1,22 @@
+{
+  "name": "card-guess",
+  "version": "1.0.0",
+  "description": "Small game where you try to form pairs of cards by playing as few turns as possible",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alixbrunsperger/card-guess.git"
+  },
+  "author": "Alixb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alixbrunsperger/card-guess/issues"
+  },
+  "homepage": "https://github.com/alixbrunsperger/card-guess#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

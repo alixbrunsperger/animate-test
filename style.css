@@ -1,6 +1,180 @@
+/* ============== GRID AND POSITIONING  =================*/
+/* ============== Plese check simple-grid.css website for the original version ! thanks to (C) ZACH COLE =================== */
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.justify {
+    text-align: justify;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row {
+    position: relative;
+    width: 100%;
+}
+
+.row [class^="col"] {
+    float: left;
+    margin: 0.5rem 2%;
+    min-height: 0.125rem;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+    width: 96%;
+}
+
+.col-1-sm {
+    width: 4.33%;
+}
+
+.col-2-sm {
+    width: 12.66%;
+}
+
+.col-3-sm {
+    width: 21%;
+}
+
+.col-4-sm {
+    width: 29.33%;
+}
+
+.col-5-sm {
+    width: 37.66%;
+}
+
+.col-6-sm {
+    width: 46%;
+}
+
+.col-7-sm {
+    width: 54.33%;
+}
+
+.col-8-sm {
+    width: 62.66%;
+}
+
+.col-9-sm {
+    width: 71%;
+}
+
+.col-10-sm {
+    width: 79.33%;
+}
+
+.col-11-sm {
+    width: 87.66%;
+}
+
+.col-12-sm {
+    width: 96%;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.hidden-sm{
+    display: none;
+}
+.hidden-landscape,
+.hidden-portrait,
+.hidden-desk{
+    display: block;
+}
+
+.show-portrait,
+.show-landscape{
+    display:none;
+}
+
+
+/* ================  DESIGN OF THE PAGE  ==================*/
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    font-size: 100%;
+}
+
 *{
     color : white;
+    font-family : "Lato", Sans-Serif;
+    xline-height: 1.5;
+    box-sizing: border-box;
 }
+
+body{
+    background: #cc007d;
+    background: -moz-linear-gradient(top, #cc007d 0%, #cc59ab 100%);
+    background: -webkit-linear-gradient(top, #cc007d 0%,#cc59ab 100%);
+    background: linear-gradient(to bottom, #cc007d 0%,#cc59ab 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc007d', endColorstr='#cc59ab',GradientType=0 );
+    height: 800px;
+}
+
+.header{
+    text-align :center;
+    align : center;
+    min-height : 175px;
+    font-size : 45px;
+}
+.footer{
+    text-align :center;
+    align : center;
+    position: fixed;
+    bottom : 0;
+}
+
+.main-container{
+    position: relative;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.rotate{
+    margin-top: 15px;
+}
+
+/* ============  CARDS  =============== */
 .block{
     width: 100%;
     position: absolute;
@@ -25,89 +199,169 @@
     height:300px;
 }
 
+/* ======== FEEDBACK -- SCORE ========= */
+
 .feedback{
     text-align :center;
     align : center;
-    position: absolute;
-    top : 25px;
-    font-size : 130px;
-    left : 22%;
-    width : 55%;
+    font-size : 50px;
+    width : 100%;
 }
 .invalid {
     font-family: "Norican";
-    background-image: -webkit-linear-gradient(bottom, #f4cb42, #dd111b, #f4cb42); /* For Chrome and Safari */
-    background-image:    -moz-linear-gradient(bottom, #f4cb42, #dd111b, #f4cb42); /* For old Fx (3.6 to 15) */
-    background-image:     -ms-linear-gradient(bottom, #f4cb42, #dd111b, #f4cb42); /* For pre-releases of IE 10*/
-    background-image:      -o-linear-gradient(bottom, #f4cb42, #dd111b, #f4cb42); /* For old Opera (11.1 to 12.0) */
-    background-image:         linear-gradient(to top, #f4cb42, #dd111b, #f4cb42); /* Standard syntax; must be last */
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: black;
 }
 
 .valid{
     font-family: "Norican"; /* 1ad867 */
-    background-image: -webkit-linear-gradient(bottom, #013a19, #057231); /* For Chrome and Safari */
-    background-image:    -moz-linear-gradient(bottom, #013a19, #057231); /* For old Fx (3.6 to 15) */
-    background-image:     -ms-linear-gradient(bottom, #013a19, #057231); /* For pre-releases of IE 10*/
-    background-image:      -o-linear-gradient(bottom, #013a19, #057231); /* For old Opera (11.1 to 12.0) */
-    background-image:         linear-gradient(to top, #013a19, #057231); /* Standard syntax; must be last */
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #34E555;
 }
 
 .end{
     font-family: "Norican";
-    background-image: -webkit-linear-gradient(bottom, #1ad867, #057231); /* For Chrome and Safari */
-    background-image:    -moz-linear-gradient(bottom, #1ad867, #057231); /* For old Fx (3.6 to 15) */
-    background-image:     -ms-linear-gradient(bottom, #1ad867, #057231); /* For pre-releases of IE 10*/
-    background-image:      -o-linear-gradient(bottom, #1ad867, #057231); /* For old Opera (11.1 to 12.0) */
-    background-image:         linear-gradient(to top, #1ad867, #057231); /* Standard syntax; must be last */
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+    color: #34E555;
     display : block;
-    line-height : 100px;
-}
-
-.main-container{
-    position: relative;
-}
-
-body{
-    background-image: url(/images/background.jpg);
-    background-repeat:  no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-}
-
-.header{
-    text-align :center;
-    align : center;
-    min-height : 175px;
-    font-size : 50px;
-}
-.footer{
-    text-align :center;
-    align : center;
-    position: fixed;
-    bottom : 0;
+    font-size : 100px;
+    text-align : center;
+    width : 100%;
 }
 
 .new-game{
     background-color : transparent;
-    color : black;
+    color : white;
     font-size : 25px;
-    border : 3px solid black;
+    border : 3px solid white;
     border-radius : 5px;
+    margin: auto;
 }
 .new-game:hover{
     background-color : black;
     color: white;
+    border-color : black;
 }
 .feedback .new-game{
     display : block;
     margin :  25px auto;
+}
+
+.score-container {
+    line-height: 70px;
+}
+
+.hint{
+    font-size : 25px;
+}
+
+.score-container{
+    font-size : 40px;
+}
+
+.button-container,
+.score-container,
+.feedback-container{
+    height : 70px;
+}
+
+/* ================ MEDIA QUERIES ==================== */
+
+@media only screen and (min-width: 33.75em) {  /* 540px */
+    .container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 45em) {  /* 720px */
+    .col-1 {
+        width: 4.33%;
+    }
+
+    .col-2 {
+        width: 12.66%;
+    }
+
+    .col-3 {
+        width: 21%;
+    }
+
+    .col-4 {
+        width: 29.33%;
+    }
+
+    .col-5 {
+        width: 37.66%;
+    }
+
+    .col-6 {
+        width: 46%;
+    }
+
+    .col-7 {
+        width: 54.33%;
+    }
+
+    .col-8 {
+        width: 62.66%;
+    }
+
+    .col-9 {
+        width: 71%;
+    }
+
+    .col-10 {
+        width: 79.33%;
+    }
+
+    .col-11 {
+        width: 87.66%;
+    }
+
+    .col-12 {
+        width: 96%;
+    }
+
+    .hidden-sm {
+        display: block;
+    }
+    .hidden-desk {
+        display : none;
+    }
+}
+
+/* ===== PORTRAIT ====== */
+@media (max-width: 33.75em){   /* Mobile portait*/
+    .show-portrait{
+        display: block;
+    }
+    .hidden-portrait{
+        display: none;
+    }
+}
+/*
+@media (max-width: 45em) and (min-width: 33.75em){
+  .hidden-portrait{
+    display : none;
+  }
+}*/
+
+/*  ===== LANDSCAPE ====== */
+@media (max-width: 45em) and (orientation: landscape){  /* Mobile Landscape*/
+    .header {
+        min-height: 90px;
+    }
+    .hidden-landscape{
+        display: none;
+    }
+    .show-landscape{
+        display: block;
+    }
+    .hidden-portrait {
+        display: block;
+    }
+
+    .card-container{
+        height : 100px;
+    }
+    .end{
+        font-size: 80px;
+    }
 }
