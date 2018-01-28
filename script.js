@@ -32,7 +32,7 @@ function initData(){
             cards.push(i);
         }
     }
-    return cards.concat(cards).sort(function(a, b){return 0.5 - Math.random()});
+    return [...cards, ...cards].sort(function(a, b){return 0.5 - Math.random()});
 }
 
 function initCards(){
