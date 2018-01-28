@@ -1,49 +1,48 @@
-var cardValidate= [];
-var feedback = "";
-var nbTurn = 0;
+let cardValidate= [];
+let feedback = "";
+let nbTurn = 0;
 
 function flipCard(element, shouldBeValidated){
     //add a parameter to add listener or not.
-    const block1 = element.querySelector(".block.back");
-    const block2 = element.querySelector(".block.card");
+    const blockBack = element.querySelector(".block.back");
+    const blockCard = element.querySelector(".block.card");
 
-    if(block1.style.display === "block"){
-        block1.style.display = "none";
-        block2.style.display = "block";
-        block2.classList.add("animated","flipInY");
+    if(blockBack.style.display === "block"){
+        blockBack.style.display = "none";
+        blockCard.style.display = "block";
+        blockCard.classList.add("animated","flipInY");
         if(shouldBeValidated){
             element.addEventListener("animationend", validate);
         }
 
     } else {
-        block2.style.display = "none";
-        block1.style.display = "block";
-        block1.classList.add("animated","flipInY");
+        blockCard.style.display = "none";
+        blockBack.style.display = "block";
+        blockBack.classList.add("animated","flipInY");
     }
 
 }
 
 function initData(){
     //Creation of the table of the twelve cards
-    let cards = [];
-    while(cards.length<6){
-        let i =Math.floor((Math.random() * 10) + 1);
-        if(!cards.includes(i)){
-            cards.push(i);
-        }
-    }
-    return [...cards, ...cards].sort(function(a, b){return 0.5 - Math.random()});
+    let values=[1,2,3,4,5,6,7,8,9,10];
+    let cards=[];
+    while (4<(len=values.length)) cards.push(values.splice(len*Math.random(),1))[0];
+}
+
+function editContents (selector, contents) {
+    document.querySelector(selector).innerHTML = contents
 }
 
 function initCards(){
     //initialise the boards with the cards
     const arrayCards = initData();
-    document.querySelector(".cards-container").innerHTML="";
-    document.querySelector(".feedback").innerHTML="";
     nbTurn=0;
-    document.querySelector('.score').innerHTML = nbTurn;
-    for(let i = 0;i < arrayCards.length;i++){
-        initCard(arrayCards[i]);
+    editContents(".cards-container","");
+    editContents(".feedback","");
+    editContents(".score",nbTurn);
+    for(let cards in arrayCards){
+        initCard(cards);
     }
     document.querySelector(".main-container").classList.add("animated", "bounceInLeft");
     document.querySelector(".main-container").addEventListener("animationend",resetMainContainer)
@@ -57,27 +56,27 @@ function resetMainContainer(e){
 
 function initCard(number){
     // creation of each card
-    let container_element = document.createElement("div");
-    container_element.classList.add("col-2","col-2-sm", "card-container", "card-" + number);
-    container_element.onclick= () => flipCard(container_element, true);
+    let containerElement = document.createElement("div");
+    containerElement.classList.add("col-2","col-2-sm", "card-container", "card-" + number);
+    containerElement.onclick= () => flipCard(containerElement, true);
 
-    let back_element = document.createElement("div");
-    back_element.classList.add("block","back");
-    back_element.style.display = "block";
-    container_element.appendChild(back_element);
+    let backElement = document.createElement("div");
+    backElement.classList.add("block","back");
+    backElement.style.display = "block";
+    containerElement.appendChild(backElement);
 
-    let back_img = document.createElement("img");
-    back_img.src="images/back2.png";
-    back_element.appendChild(back_img);
+    let backImg = document.createElement("img");
+    backImg.src="images/back2.png";
+    backElement.appendChild(backImg);
 
-    let card_element = document.createElement("div");
-    card_element.classList.add("block","card");
-    container_element.appendChild(card_element);
+    let cardElement = document.createElement("div");
+    cardElement.classList.add("block","card");
+    containerElement.appendChild(cardElement);
 
-    let card_img = document.createElement("img");
-    card_img.src="images/cards/" + number + ".png";
-    card_element.appendChild(card_img);
-    document.querySelector(".cards-container").appendChild(container_element);
+    let cardImg = document.createElement("img");
+    cardImg.src = `images/cards/${number}.png`;
+    cardElement.appendChild(cardImg);
+    document.querySelector(".cards-container").appendChild(containerElement);
 }
 
 function validate(e){
@@ -106,8 +105,8 @@ function validate(e){
             cardValidate[1].classList.add("hidden");
             //check if the game is finished
             if (document.querySelectorAll(".hidden").length == 12){
-                document.querySelector('.score').innerHTML = "";
-                endGame("<b class='end'>You did it in " + nbTurn + " turns !<br/> Play again ?</b>","animated","lightSpeedIn");
+                editContents('.score',"");
+                endGame(`<b class='end'>You did it in ${nbTurn} turns !<br/> Play again ?</b>`,"animated","lightSpeedIn");
             }
             else {
                 animateFeedback("<b class='valid'>Sweet</b>","animated","rubberBand");
@@ -124,7 +123,7 @@ function validate(e){
 
 function endGame(text, class1, class2){
     document.querySelector(".cards-container").classList.add(class1, class2);
-    document.querySelector(".cards-container").innerHTML = text;
+    editContents(".cards-container",text);
 }
 
 function animateFeedback(text, class1, class2){
@@ -134,7 +133,7 @@ function animateFeedback(text, class1, class2){
     element.innerHTML = text;
     element.classList.add(class1, class2);
     element.addEventListener("animationend", resetFeedback);
-    document.querySelector('.score').innerHTML = nbTurn;
+    editContents('.score',nbTurn);
 }
 
 function resetFeedback(e){
