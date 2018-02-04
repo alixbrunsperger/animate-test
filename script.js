@@ -25,9 +25,14 @@ function flipCard(element, shouldBeValidated){
 
 function initData(){
     //Creation of the table of the twelve cards
-    let values=[1,2,3,4,5,6,7,8,9,10];
     let cards=[];
-    while (4<(len=values.length)) cards.push(values.splice(len*Math.random(),1))[0];
+    while(cards.length<6){
+        let i =Math.floor((Math.random() * 10) + 1);
+        if(!cards.includes(i)){
+            cards.push(i);
+        }
+    }
+    return [...cards, ...cards].sort(function(a, b){return 0.5 - Math.random()});
 }
 
 function editContents (selector, contents) {
@@ -41,7 +46,7 @@ function initCards(){
     editContents(".cards-container","");
     editContents(".feedback","");
     editContents(".score",nbTurn);
-    for(let cards in arrayCards){
+    for(let cards of arrayCards){
         initCard(cards);
     }
     document.querySelector(".main-container").classList.add("animated", "bounceInLeft");
