@@ -66,7 +66,7 @@ function initCard(number){
     containerElement.appendChild(backElement);
 
     let backImg = document.createElement("img");
-    backImg.src="images/back2.png";
+    backImg.src="./images/back2.png";
     backElement.appendChild(backImg);
 
     let cardElement = document.createElement("div");
@@ -74,7 +74,7 @@ function initCard(number){
     containerElement.appendChild(cardElement);
 
     let cardImg = document.createElement("img");
-    cardImg.src = `images/cards/${number}.png`;
+    cardImg.src = `./images/cards/${number}.png`;
     cardElement.appendChild(cardImg);
     document.querySelector(".cards-container").appendChild(containerElement);
 }
